@@ -5,8 +5,8 @@ public class PrincipalBucles {
         int entero = 0;
         Scanner teclado;
         Boolean flag = true;
-        do{
-            try {
+        do {
+            try { // Intentar
                 escribir(" "+mensaje+": ");
                 teclado = new Scanner(System.in);
                 entero = teclado.nextInt();
@@ -14,7 +14,7 @@ public class PrincipalBucles {
             } catch(Exception e) {
                 escribirLinea(">>Error<< El dato ingresado no es un número.\n Intentelo nuevamente.");
             }
-        } while(flag);
+        } while ( flag );
 
         return entero;
     }
@@ -53,3 +53,31 @@ public class PrincipalBucles {
 
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
