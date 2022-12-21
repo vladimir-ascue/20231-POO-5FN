@@ -15,7 +15,6 @@ public class PrincipalBucles {
                 escribirLinea(">>Error<< El dato ingresado no es un número.\n Intentelo nuevamente.");
             }
         } while ( flag );
-
         return entero;
     }
 

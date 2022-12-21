@@ -24,5 +24,7 @@ public class PrincipalSwitch {
                 System.out.println("El mes ingresado no existe");
                 break;
         }
+        int a=0;
+
     }
 }
