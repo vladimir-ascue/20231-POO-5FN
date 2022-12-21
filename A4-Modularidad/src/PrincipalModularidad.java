@@ -1,18 +1,18 @@
-// import .... Librerias
-
-
 import java.util.Scanner;
 
 public class PrincipalModularidad {
 
     public static int leerEntero(){
         int e = 0;
-        Scanner sc = new Scanner(System.in);  // El scanner esta constantemente viendo la actividad del teclado
-                                              // Y trabaja de la mano con System (el Sistema) para que observe los
-                                              // INgresos de teclado (System.in)
-
-        e = sc.nextInt();                         // COnvertimos lo ingresado por teclado y lo convertimos a Entero
-
+        Scanner sc;
+        try {
+            sc = new Scanner(System.in); // Ingreso de datos del teclado
+            e = sc.nextInt();  // Convierte el dato en Entero
+        } catch (Exception ex){
+            System.out.println("Error: ingrese un numero válido.");
+//            ex.printStackTrace();
+//            System.out.print(ex.getMessage());
+        }
         return e;
     }
 
@@ -49,26 +49,48 @@ public class PrincipalModularidad {
             System.out.println("  2- Restar.");
             System.out.println("  3- Multiplicar.");
             System.out.println("  4- Dividir.");
-            System.out.print("Ingrese una opción: ");
-            opcion = leerEnt();
-            System.out.print("Ingrese un numero entero: ");
-            int num1 = leerEntero();
-            System.out.print("Ingrese otro numero entero: ");
-            int num2 = leerEntero();
+            System.out.print("  >> Ingrese una opción: ");
+            opcion = leerEntero();
+            int num1 = 0;
+            int num2 = 0;
+            if (opcion != 0) {
+                System.out.print("Ingrese un numero entero: ");
+                num1 = leerEntero();
+                System.out.print("Ingrese otro numero entero: ");
+                num2 = leerEntero();
+            } else {
+                System.out.println("Gracias por usar esta triste calculadora. Vuelva pronto");
+            }
             switch ( opcion ){
-                case 0:
+/*                case 0:
                     System.out.println("Gracias por usar esta triste calculadora. Vuelva pronto");
-                    break;
+                    break;*/
                 case 1:
+/*                    System.out.print("Ingrese sumado1 entero: ");
+                    int num1 = leerEntero();
+                    System.out.print("Ingrese sumando2 entero: ");
+                    int num2 = leerEntero();*/
                     System.out.println("La suma de " + num1 + " y " + num2 + " es: " + sumar(num1, num2));
                     break;
                 case 2:
+/*                    System.out.print("Ingrese minuendo entero: ");
+                    int num1 = leerEntero();
+                    System.out.print("Ingrese sustraendo entero: ");
+                    int num2 = leerEntero();*/
                     System.out.println("La diferencia de " + num1 + " y " + num2 + " es: " + restar(num1, num2));
                     break;
                 case 3:
+/*                  System.out.print("Ingrese un numero entero: ");
+                    int num1 = leerEntero();
+                    System.out.print("Ingrese otro numero entero: ");
+                    int num2 = leerEntero(); */
                     System.out.println("El producto de " + num1 + " y " + num2 + " es: " + multiplicar(num1, num2));
                     break;
                 case 4:
+/*                  System.out.print("Ingrese un numero entero: ");
+                    int num1 = leerEntero();
+                    System.out.print("Ingrese otro numero entero: ");
+                    int num2 = leerEntero(); */
                     System.out.println("El cosiente de " + num1 + " y " + num2 + " es: " + dividir(num1, num2));
                     break;
                 default:
