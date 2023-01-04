@@ -15,6 +15,13 @@ public class PrincipalModularidad {
         }
         return e;
     }
+    public static String leerTexto(){
+        String e = "";
+        Scanner sc;
+        sc = new Scanner(System.in); // Ingreso de datos del teclado
+        e = sc.nextLine();  // Convierte el dato en Entero
+        return e;
+    }
 
     public static int leerEnt(){
         return new Scanner(System.in).nextInt();
@@ -58,44 +65,78 @@ public class PrincipalModularidad {
                 num1 = leerEntero();
                 System.out.print("Ingrese otro numero entero: ");
                 num2 = leerEntero();
-            } else {
-                System.out.println("Gracias por usar esta triste calculadora. Vuelva pronto");
-            }
-            switch ( opcion ){
+                switch ( opcion ){
 /*                case 0:
                     System.out.println("Gracias por usar esta triste calculadora. Vuelva pronto");
                     break;*/
-                case 1:
+                    case 1:
 /*                    System.out.print("Ingrese sumado1 entero: ");
                     int num1 = leerEntero();
                     System.out.print("Ingrese sumando2 entero: ");
                     int num2 = leerEntero();*/
-                    System.out.println("La suma de " + num1 + " y " + num2 + " es: " + sumar(num1, num2));
-                    break;
-                case 2:
+                        System.out.println("La suma de " + num1 + " y " + num2 + " es: " + sumar(num1, num2));
+                        break;
+                    case 2:
 /*                    System.out.print("Ingrese minuendo entero: ");
                     int num1 = leerEntero();
                     System.out.print("Ingrese sustraendo entero: ");
                     int num2 = leerEntero();*/
-                    System.out.println("La diferencia de " + num1 + " y " + num2 + " es: " + restar(num1, num2));
-                    break;
-                case 3:
+                        System.out.println("La diferencia de " + num1 + " y " + num2 + " es: " + restar(num1, num2));
+                        break;
+                    case 3:
 /*                  System.out.print("Ingrese un numero entero: ");
                     int num1 = leerEntero();
                     System.out.print("Ingrese otro numero entero: ");
                     int num2 = leerEntero(); */
-                    System.out.println("El producto de " + num1 + " y " + num2 + " es: " + multiplicar(num1, num2));
-                    break;
-                case 4:
+                        System.out.println("El producto de " + num1 + " y " + num2 + " es: " + multiplicar(num1, num2));
+                        break;
+                    case 4:
 /*                  System.out.print("Ingrese un numero entero: ");
                     int num1 = leerEntero();
                     System.out.print("Ingrese otro numero entero: ");
                     int num2 = leerEntero(); */
-                    System.out.println("El cosiente de " + num1 + " y " + num2 + " es: " + dividir(num1, num2));
-                    break;
-                default:
-                    System.out.println("Esa opcion no es válida.");
-                    break;
+
+                        if (num2 == 0){
+                            System.out.println("Error: el divisor no puede ser cero (0):");
+                            System.out.println("  0- Regresar al menu anterior. ");
+                            System.out.println("  1- Inbgresa un nuevo divisor. ");
+                            System.out.print("     >> Seleccione una opcion: ");
+                            int opcionDivisor = leerEntero();
+                            if (opcionDivisor == 0){
+                                System.out.println("  Regresando al menu anterior ...");
+                            }else{
+                                System.out.print("    >> Nuevo divisor: ");
+                                num2 = leerEntero();
+                                if (num2 == 0){
+                                    System.out.println("    Ingresaste cero nuevamente \n Regresando al menu principal...");
+                                } else {
+                                    System.out.println("El cosiente de " + num1 + " y " + num2 + " es: " + dividir(num1, num2));
+                                }
+                            }
+                        }else{
+                            System.out.println("El cosiente de " + num1 + " y " + num2 + " es: " + dividir(num1, num2));
+                        }
+
+                        break;
+                    case 5:
+                        System.out.print("nombre");
+                        String nombre = leerTexto();
+
+
+                            // nombre.compareTo("Vladimir") == 0 >> Retoena un entero
+                        if( nombre.equals("Vladimir") ){
+                            System.out.println("son iguales");
+                        }else{
+                            System.out.println("no son iguales");
+                        }
+
+                        break;
+                    default:
+                        System.out.println("Esa opcion no es válida.");
+                        break;
+                }
+            } else {
+                System.out.println("Gracias por usar esta triste calculadora. Vuelva pronto");
             }
         } while ( opcion > 0 );
     }
