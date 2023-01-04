@@ -1,45 +1,76 @@
 public class PrincipalConjuntos {
+    public static int menu(){
+        scan.escribirLn("#########       MENU PRINCIPAL      #########");
+        scan.escribirLn("######### OPERACIONES CON CONJUNTOS #########");
+        scan.escribirLn("0- Salir");
+        scan.escribirLn("1- Union");
+        scan.escribirLn("2- Interseccion");
+        scan.escribirLn("3- Diferencia");
+        scan.escribirLn("4- Diferencia Simétrica");
+        scan.escribirLn("5- Cambiar conjuntos");
+        return scan.leerEntero(">> Ingrese una opcion (0 - 5)");
+    }
+    public static int[] leerConjunto(String nombre, int tam){
+        int[] a = new int[tam];
+        for (int i = 0; i < a.length; i++) {
+            a[i] = scan.leerEntero(nombre+"["+i+"]");
+        }
+        return a;
+    }
+
+    public static void mostrarConjunto(String nombre, int[] conj){
+        scan.escribir(nombre+" = { ");
+        for (int i = 0; i < conj.length; i++) {
+            if ( i == conj.length-1 )
+                scan.escribir(conj[i]+"");
+            else
+                scan.escribir(conj[i] + ", ");
+        }
+        scan.escribirLn(" }");
+    }
     public static void main(String[] args) {
-        int [] A = {20,30,40,50};
-        int [] B = {32,41,30,40,20};
-        int dup = 0;
-        /*
-        A + B = {2,3,4,5,3,4,5,6,7} >> 3, 4, 5
-        A U B = { 2,3,4,5,6,7 }  >> Como calculo este tamaño
-         */
-        // Recorremos los elementos de A
-        for (int i = 0; i < A.length; i++) {
-            // System.out.println("A["+i + "] = " + A[i]);
-            // Recorremos los elementos de B
-            for (int j = 0; j < B.length; j++) {
-                // System.out.println("  - B["+j + "] = " + B[j]);
-                if ( A[i] == B[j] ){
-                    dup++;
-                }
-            }
-        }
-        int tamUnion = A.length + B.length - dup;
-        System.out.println("Hay "+dup+" duplicado(s).");
-        System.out.println("La union tiene "+tamUnion+"elementos");
-        // imprimir B
+        scan.escribirLn("######### OPERACIONES CON CONJUNTOS #########");
+        String nombre1 = scan.leertexto("Nombre de primer Conjunto");
+        int tam1 = scan.leerEntero("Tamaño de "+nombre1);
+        int[] A = leerConjunto(nombre1,tam1);
+        mostrarConjunto(nombre1,A);
 
-        int [] union = new int[tamUnion];
-        for (int i = 0; i < A.length; i++) {
-            union[i] = A[i];
-            System.out.println(union[i]);
-        }
-        //int [] A = {20,30,40,50};
-        //int [] B = {32,41,30,40,20};
-        for (int j = 0; j < union.length; j++) {
-            for (int k = 0; k < B.length; k++) {
-                if( union[j] != B[k] ){
-                    union[j+A.length] = B[k];
-                }
-            }
-        }
-
-        for (int i = 0; i < union.length; i++) {
-            System.out.println("union["+i+"] = "+union[i]);
+        String nombre2 = scan.leertexto("Nombre de segundo Conjunto");
+        int tam2 = scan.leerEntero("Tamaño de "+nombre2);
+        int[] B = leerConjunto(nombre2,tam2);
+        int opcion = menu();
+        switch ( opcion ){
+            case 0:
+                scan.escribirLn("Adios ...");
+                break;
+            case 1:
+                scan.escribirLn("Vamos a UNIR los conjuntos");
+                mostrarConjunto(nombre1,A);
+                mostrarConjunto(nombre2,B);
+                break;
+            case 2:
+                scan.escribirLn("Vamos a INTERSECTAR los conjuntos");
+                mostrarConjunto(nombre1,A);
+                mostrarConjunto(nombre2,B);
+                break;
+            case 3:
+                scan.escribirLn("Vamos a hallar la DIFERENCIA de los conjuntos");
+                mostrarConjunto(nombre1,A);
+                mostrarConjunto(nombre2,B);
+                break;
+            case 4:
+                scan.escribirLn("Vamos a hallar la DIFERENCIA SIMÉTRICA de los conjuntos");
+                mostrarConjunto(nombre1,A);
+                mostrarConjunto(nombre2,B);
+                break;
+            case 5:
+                scan.escribirLn("Vamos a CAMBIAR los conjuntos");
+                mostrarConjunto(nombre1,A);
+                mostrarConjunto(nombre2,B);
+                break;
+            default:
+                scan.escribirLn("Opcion fuera de rango (0 - 5)");
+                break;
         }
     }
 }

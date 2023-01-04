@@ -1,58 +1,59 @@
 import java.util.Scanner;
 
 public class scan {
-	@SuppressWarnings("resource")
-	protected static int LeerEntero() {
-		Boolean flagEntero = true;
+	public static void escribir(String texto){
+		System.out.print(texto);
+	}
+	public static void escribirLn(String texto){
+		System.out.println(texto);
+	}
+
+	/* Ejemplito de commit desde la red de khipu */
+
+	public static int leerEntero(String mensaje){
 		int entero = 0;
+		Boolean flag = true;
+		Scanner teclado;
 		do {
-			try {
-				Scanner lector = new Scanner(System.in);
-				System.out.println("Infrese un número entero: ");
-				entero = lector.nextInt();
-				flagEntero = false;
-			} catch (Exception e) {
-				System.out.println("Error: Debe ingresar un número entero: ");
-				flagEntero = true;
-				System.out.print("Intentelo nuevamente: ");
+			escribir("\t"+mensaje+": ");
+			teclado = new Scanner(System.in);
+			try{
+				entero = teclado.nextInt();
+				flag = false;
+			}catch(Exception e){
+				escribirLn("Error: Ese no es un entero válido.");
+				escribirLn("Intentalo nuevamente el proximo año.");
 			}
-		} while (flagEntero);
+		}while (flag);
 		return entero;
 	}
 
-	@SuppressWarnings("resource")
-	protected static double LeerReal() {
-		// jojolete
-		Boolean flagReal = true;
-		double real = 0;
+	public static double leerDecimal(String mensaje){
+		double decimal = 0;
+		Boolean flag = true;
+		Scanner teclado;
 		do {
-			try {
-				Scanner lector = new Scanner(System.in);
-				System.out.println("Infrese un número real: ");
-				real = lector.nextDouble();
-				flagReal = false;
-			} catch (Exception e) {
-				System.out.println("Error: Debe ingresar un número real: ");
-				flagReal = true;
-				System.out.print("Intentelo nuevamente: ");
+			escribir("\t"+mensaje+": ");
+			teclado = new Scanner(System.in);
+			try{
+				decimal = teclado.nextDouble();
+				flag = false;
+			}catch(Exception e){
+				escribirLn("Error: Ese no es un entero válido.");
+				escribirLn("Intentalo nuevamente el proximo año.");
 			}
-		} while (flagReal);
-		return real;
+		}while (flag);
+		return decimal;
 	}
 
-	@SuppressWarnings("resource")
-	protected static String LeerTexto(String mensaje) {
-		Scanner lector = new Scanner(System.in);
-		System.out.println(mensaje);
-		String texto = lector.nextLine();
+	public static String leertexto(String mensaje){
+		String texto = "";
+		Scanner teclado;
+
+		escribir("\t"+mensaje+": ");
+		teclado = new Scanner(System.in);
+
+		texto = teclado.nextLine();
 		return texto;
-	}
-
-	protected static void escribir(String texto) {
-		System.out.print(texto);
-	}
-
-	protected static void escribirLinea(String texto) {
-		System.out.println(texto);
 	}
 }
