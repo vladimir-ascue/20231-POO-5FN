@@ -1,9 +1,10 @@
 public class PrincipalConjuntos {
-    // A = { 2,3,4,5,6 } >> tamA = 5
+    // A = { 2,3,7,5,6 } >> tamA = 5
     // B = { 4,5,7 } >> tamB = 3
     // tamUnion = tamA + TamB >>>>>> tamUnion = 8 ???????
     // union = { 2,3,4,5,6,7 } tamUnion = 6
-    public int[] unir(int[] A, int[] B){
+
+    public static int[] unir(int[] A, int[] B){
         int dup = 0;
         for (int i = 0; i < A.length; i++) {
             for (int j = 0; j < B.length; j++) {
@@ -11,19 +12,30 @@ public class PrincipalConjuntos {
                     dup++;
             }
         }
-
         int[] union = new int [ A.length + B.length - dup ];
-
         // COPIAR LOS ELEMENTOS DE A EN UNION
         for (int i = 0; i < A.length; i++) {
             union[i] = A[i];
         }
-
-        // cOPIAR LOS ELEMENTOS DE B EN UNION AUQ AUN NO ESTAN EN UNION
-
-
+        // COPIAR LOS ELEMENTOS DE B EN UNION AUQ AUN NO ESTAN EN UNION
+        int cont = 0;
+        for (int i = 0; i < B.length; i++) {
+            if (!existe(B[i],union)) {
+                union[cont + A.length] = B[i];
+                cont++;
+            }
+        }
 
         return union;
+    }
+
+    public static Boolean existe(int elem, int[] conj){
+        Boolean flag = false;
+        for (int i = 0; i < conj.length; i++) {
+            if(conj[i] == elem)
+                flag = true;
+        }
+        return flag;
     }
 
     public static int menu(){
@@ -75,6 +87,8 @@ public class PrincipalConjuntos {
                 scan.escribirLn("Vamos a UNIR los conjuntos");
                 mostrarConjunto(nombre1,A);
                 mostrarConjunto(nombre2,B);
+                int[] union = unir(A, B);
+                mostrarConjunto("Union",union);
                 break;
             case 2:
                 scan.escribirLn("Vamos a INTERSECTAR los conjuntos");
