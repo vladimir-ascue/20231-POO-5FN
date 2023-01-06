@@ -1,4 +1,31 @@
 public class PrincipalConjuntos {
+    // A = { 2,3,4,5,6 } >> tamA = 5
+    // B = { 4,5,7 } >> tamB = 3
+    // tamUnion = tamA + TamB >>>>>> tamUnion = 8 ???????
+    // union = { 2,3,4,5,6,7 } tamUnion = 6
+    public int[] unir(int[] A, int[] B){
+        int dup = 0;
+        for (int i = 0; i < A.length; i++) {
+            for (int j = 0; j < B.length; j++) {
+                if (A[i] == B[j])
+                    dup++;
+            }
+        }
+
+        int[] union = new int [ A.length + B.length - dup ];
+
+        // COPIAR LOS ELEMENTOS DE A EN UNION
+        for (int i = 0; i < A.length; i++) {
+            union[i] = A[i];
+        }
+
+        // cOPIAR LOS ELEMENTOS DE B EN UNION AUQ AUN NO ESTAN EN UNION
+
+
+
+        return union;
+    }
+
     public static int menu(){
         scan.escribirLn("#########       MENU PRINCIPAL      #########");
         scan.escribirLn("######### OPERACIONES CON CONJUNTOS #########");
@@ -28,6 +55,7 @@ public class PrincipalConjuntos {
         }
         scan.escribirLn(" }");
     }
+
     public static void main(String[] args) {
         scan.escribirLn("######### OPERACIONES CON CONJUNTOS #########");
         String nombre1 = scan.leertexto("Nombre de primer Conjunto");
