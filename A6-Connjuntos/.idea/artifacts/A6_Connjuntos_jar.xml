@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="A6-Connjuntos:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/A6_Connjuntos_jar</output-path>
+    <root id="archive" name="A6-Connjuntos.jar">
+      <element id="module-output" name="A6-Connjuntos" />
+    </root>
+  </artifact>
+</component>
