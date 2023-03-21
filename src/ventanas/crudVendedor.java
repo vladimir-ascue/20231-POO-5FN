@@ -9,4 +9,5 @@ public class crudVendedor extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
+    /**/
 }

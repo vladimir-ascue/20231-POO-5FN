@@ -9,4 +9,5 @@ public class crudCliente extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
+    /**/
 }

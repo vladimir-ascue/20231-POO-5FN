@@ -9,4 +9,5 @@ public class ListarFlores extends JFrame {
         setResizable(false);
         setLocationRelativeTo(null);
     }
+    /**/
 }

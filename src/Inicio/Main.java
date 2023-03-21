@@ -7,5 +7,7 @@ public class Main {
         v.setVisible(true);
         v.setTitle("Sistema de ventas - Florería");
     }
+    /**/
+
 }
 
