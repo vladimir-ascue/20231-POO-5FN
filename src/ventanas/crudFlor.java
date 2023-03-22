@@ -1,33 +1,35 @@
 package ventanas;
 
+import Clases.CFlor;
+
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
-import java.util.spi.LocaleNameProvider;
+
 
 public class crudFlor extends JFrame {
     private JPanel panel;
-    private JLabel idflor;
-    private JTextField nombre;
-    private JTextField aroma;
-    private JTextField color;
-    private JTextField precio;
-    private JTextField stock;
+    private JLabel jlbIdFlor;
+    private JTextField jtfNombre;
+    private JTextField jtfAroma;
+    private JTextField jtfColor;
+    private JTextField jtfPrecio;
+    private JTextField jtfStock;
     private SpinnerDateModel fcreacion;
-    private JTextField estado;
+    private JTextField jtfEstado;
 
-    private JLabel lbnombre;
-    private JLabel lbaroma;
-    private JLabel lbcolor;
-    private JLabel lbprecio;
-    private JLabel lbstock;
+    private JLabel jlbNombre;
+    private JLabel lbAroma;
+    private JLabel jlbColor;
+    private JLabel lbPrecio;
+    private JLabel jlbStock;
     private JLabel lbfcreacion;
-    private JLabel lbestado;
+    private JLabel jlbEstado;
 
-    private JButton btGuardar = new JButton();
-    private JButton btActualizar = new JButton();
-    private JButton btLimpiar = new JButton();
+    private JButton jbtGuardar = new JButton();
+    private JButton jbtActualizar = new JButton();
+    private JButton jbtLimpiar = new JButton();
     public crudFlor(){
         setSize(550, 500);
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -43,99 +45,116 @@ public class crudFlor extends JFrame {
         panel.setLayout(null);
 
 
-        idflor = new JLabel();
-        idflor.setText("...");
-        idflor.setBounds(30,30, 150,45);
+        jlbIdFlor = new JLabel();
+        jlbIdFlor.setText("...");
+        jlbIdFlor.setBounds(30,30, 150,45);
 
-        lbnombre = new JLabel();
-        lbnombre.setText("nombre");
-        lbnombre.setBounds(30,90, 150,45);
+        jlbNombre = new JLabel();
+        jlbNombre.setText("nombre");
+        jlbNombre.setBounds(30,90, 150,45);
 
-        nombre = new JTextField();
-        nombre.setText("Nombre");
-        nombre.setBounds(180,90, 150,45);
+        jtfNombre = new JTextField();
+        jtfNombre.setText("Nombre");
+        jtfNombre.setBounds(180,90, 150,45);
 
-        lbaroma = new JLabel();
-        lbaroma.setText("Aroma");
-        lbaroma.setBounds(30,140, 150,45);
+        lbAroma = new JLabel();
+        lbAroma.setText("Aroma");
+        lbAroma.setBounds(30,140, 150,45);
 
-        aroma = new JTextField();
-        aroma.setText("Aroma");
-        aroma.setBounds(180,140, 150,45);
+        jtfAroma = new JTextField();
+        jtfAroma.setText("Aroma");
+        jtfAroma.setBounds(180,140, 150,45);
 
-        lbcolor = new JLabel();
-        lbcolor.setText("Color");
-        lbcolor.setBounds(30,190, 150,45);
+        jlbColor = new JLabel();
+        jlbColor.setText("Color");
+        jlbColor.setBounds(30,190, 150,45);
 
-        color = new JTextField();
-        color.setText("Color");
-        color.setBounds(180, 190, 150,45);
+        jtfColor = new JTextField();
+        jtfColor.setText("Color");
+        jtfColor.setBounds(180, 190, 150,45);
 
-        lbprecio = new JLabel();
-        lbprecio.setText("Precio");
-        lbprecio.setBounds(30,240, 150,45);
+        lbPrecio = new JLabel();
+        lbPrecio.setText("Precio");
+        lbPrecio.setBounds(30,240, 150,45);
 
-        precio = new JTextField();
-        precio.setText("Precio");
-        precio.setBounds(180,240, 150,45);
+        jtfPrecio = new JTextField();
+        jtfPrecio.setText("Precio");
+        jtfPrecio.setBounds(180,240, 150,45);
 
-        lbstock = new JLabel();
-        lbstock.setText("Stock");
-        lbstock.setBounds(30,290, 150,45);
+        jlbStock = new JLabel();
+        jlbStock.setText("Stock");
+        jlbStock.setBounds(30,290, 150,45);
 
-        stock = new JTextField();
-        stock.setText("Stock");
-        stock.setBounds(180,290, 150,45);
+        jtfStock = new JTextField();
+        jtfStock.setText("Stock");
+        jtfStock.setBounds(180,290, 150,45);
 
         fcreacion = new SpinnerDateModel();
 
-        lbestado = new JLabel();
-        lbestado.setText("Precio");
-        lbestado.setBounds(30,340, 150,45);
+        jlbEstado = new JLabel();
+        jlbEstado.setText("Precio");
+        jlbEstado.setBounds(30,340, 150,45);
 
-        estado = new JTextField();
-        estado.setText("Estado");
-        estado.setBounds(180,340, 150,45);
+        jtfEstado = new JTextField();
+        jtfEstado.setText("Estado");
+        jtfEstado.setBounds(180,340, 150,45);
 
-        btGuardar.setText("Guardar");
-        btGuardar.setBounds(50,390, 150,45);
+        jbtGuardar.setText("Guardar");
+        jbtGuardar.setBounds(50,390, 150,45);
 
-        btActualizar.setText("Actualizar");
-        btActualizar.setBounds(230,390, 150,45);
+        jbtActualizar.setText("Actualizar");
+        jbtActualizar.setBounds(230,390, 150,45);
 
-        btLimpiar.setText("limpiar");
-        btLimpiar.setBounds(510,390, 150,45);
+        jbtLimpiar.setText("limpiar");
+        jbtLimpiar.setBounds(510,390, 150,45);
 
-        panel.add(idflor);
-        panel.add(nombre);
-        panel.add(aroma);
-        panel.add(color);
-        panel.add(precio);
-        panel.add(stock);
-        panel.add(lbnombre);
-        panel.add(lbaroma);
-        panel.add(lbcolor);
-        panel.add(lbprecio);
-        panel.add(lbstock);
+        panel.add(jlbIdFlor);
+        panel.add(jtfNombre);
+        panel.add(jtfAroma);
+        panel.add(jtfColor);
+        panel.add(jtfPrecio);
+        panel.add(jtfStock);
+        panel.add(jlbNombre);
+        panel.add(lbAroma);
+        panel.add(jlbColor);
+        panel.add(lbPrecio);
+        panel.add(jlbStock);
         // panel.add(fcreacion);
-        panel.add(estado);
+        panel.add(jtfEstado);
 
-        panel.add(btGuardar);
-        panel.add(btActualizar);
-        panel.add(btLimpiar);
+        panel.add(jbtGuardar);
+        panel.add(jbtActualizar);
+        panel.add(jbtLimpiar);
 
         this.getContentPane().add(panel);
     }
 
     public void cargarEventos(){
-        btGuardar.addActionListener(new ActionListener() {
+        jbtGuardar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                ListarFlores lf = new ListarFlores();
-                lf.setVisible(true);
-                lf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
-                lf.setTitle("Flores existentes");
+//                ListarFlores lf = new ListarFlores();
+//                lf.setVisible(true);
+//                lf.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
+//                lf.setTitle("Flores existentes");
+                CFlor f = new CFlor();
+                f.setNombre(jtfNombre.getText());
+                f.setAroma(jtfAroma.getText());
+                f.setColor(jtfColor.getText());
+                f.setPrecio(Double.parseDouble(jtfPrecio.getText()));
+                f.setFcreacion(new Date());
+                f.setStock(Integer.parseInt(jtfStock.getText()));
+                f.setEstado(jtfEstado.getText());
+                f.save();
 
+//                CFlor F2 = new CFlor(jtfNombre.getText(),
+//                        jtfAroma.getText(),
+//                        jtfColor.getText(),
+//                        Double.parseDouble(jtfPrecio.getText()),
+//                        Integer.parseInt(jtfStock.getText()),
+//                        new Date(),
+//                        jtfEstado.getText()
+//                ).save();
             }
         });
     }

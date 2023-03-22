@@ -14,7 +14,7 @@ public class conector {
     private static final String URL = "jdbc:mysql://localhost:3306/bdfloreria?serverTimezone=UTC";
     //private static final String URL = "jdbc:mysql://localhost:3306/bdfloreria";
     private static final String USUARIO = "root";
-    private static final String CLAVE = "khipu";
+    private static final String CLAVE = "antares/128";
 
     static {
         try {
