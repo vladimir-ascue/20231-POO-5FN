@@ -1,4 +1,4 @@
-package Inicial;
+package Inicio;
 
 import Ventanas.*;
 
