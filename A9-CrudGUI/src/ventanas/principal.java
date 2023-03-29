@@ -1,4 +1,6 @@
-package ventanas;
+package Ventanas;
+
+import Clases.CFlor;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -55,7 +57,7 @@ public class principal extends JFrame {
         jbtnFlores.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                crudFlor cf = new crudFlor();
+                crudFlor cf = new crudFlor(new CFlor());
                 cf.setVisible(true);
                 cf.setTitle("CRUD FLOR");
             }
