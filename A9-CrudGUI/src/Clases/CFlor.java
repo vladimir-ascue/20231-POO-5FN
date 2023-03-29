@@ -1,7 +1,8 @@
 package Clases;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
-import java.util.Scanner;
+import java.util.List;
 import conexion.conector;
 
 public class CFlor {
@@ -132,29 +133,56 @@ public class CFlor {
     }
     public void save(){
         conector c = new conector();
+
+        SimpleDateFormat sdtf = new SimpleDateFormat("yyyy-M-d hh:mm:ss");
+        String fechaCreacionFormateada = sdtf.format(this.fcreacion);
+
         String consulta = "call crearFlor('"
                           + this.nombre+"','"
                           + this.aroma +"','"
                           + this.color + "', "
                           + this.precio + ","
-                          + this.stock + ","
-                          + "'2023-12-15 12:45:15'" + ", '"
+                          + this.stock + ",'"
+                          + fechaCreacionFormateada + "', '"
                           + this.estado + "')";
         System.out.println(consulta);
         c.ejecutarProcedimientoSinDatos(consulta);
     }
+
+    public static List<List<String>> mostrarFlores(String pIdFlor) {
+        List<List<String>> data = null;
+        try {
+            conector conexion = new conector();
+            String consulta = "";
+            if (pIdFlor.compareTo("") == 0) {
+                consulta = "call listarFlores();";
+            } else {
+                consulta = "select * from TFlor where idFlor = '" + pIdFlor + "';";
+            }
+            data = conexion.ejecutarProcedimientoConDatos(consulta);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return data;
+    }
+
     public void update(){
         conector c = new conector();
+
+        SimpleDateFormat sdtf = new SimpleDateFormat("yyyy-M-d hh:mm:ss");
+        String fechaCreacionFormateada = sdtf.format(this.fcreacion);
+
         String consulta = "call actualizarFlor("
                 + this.idflor+",'"
                 + this.nombre+"','"
                 + this.aroma +"','"
                 + this.color + "', "
                 + this.precio + ","
-                + this.stock + ","
-                + "'2023-12-15 12:45:15'" + ", '"
+                + this.stock + ",'"
+                + fechaCreacionFormateada + "', '"
                 + this.estado + "')";
         System.out.println(consulta);
-        //c.ejecutarProcedimientoSinDatos(consulta);
+        c.ejecutarProcedimientoSinDatos(consulta);
+
     }
 }
