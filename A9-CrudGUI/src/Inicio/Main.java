@@ -1,6 +1,7 @@
-package Inicio;
+package Inicial;
 
-import ventanas.*;
+import Ventanas.*;
+
 public class Main {
     public static void main(String[] args) {
         principal v = new principal();
@@ -8,4 +9,3 @@ public class Main {
         v.setTitle("Sistema de ventas - Florería");
     }
 }
-
